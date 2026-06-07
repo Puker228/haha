@@ -19,10 +19,29 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
-package main
+package cmd
 
-import "github.com/Puker228/haha/cmd"
+import (
+	"os"
 
-func main() {
-	cmd.Execute()
+	"github.com/spf13/cobra"
+)
+
+var rootCmd = &cobra.Command{
+	Use:   "haha",
+	Short: "A simple app to have haha",
+	Long:  "A simple app to have haha. Run 'haha' in the terminal to make a simple 'haha' happen.",
+	Run: func(cmd *cobra.Command, args []string) {
+		printHaha()
+	},
+}
+
+func Execute() {
+	err := rootCmd.Execute()
+	if err != nil {
+		os.Exit(1)
+	}
+}
+
+func init() {
 }
