@@ -19,7 +19,8 @@ var rainCmd = &cobra.Command{
 	Short: "Make the haha face rain from the sky",
 	Long:  "Make the haha face rain from the sky. Press q or ctrl+c to quit.",
 	Run: func(cmd *cobra.Command, args []string) {
-		runRain()
+		character, _ := cmd.Flags().GetString("character")
+		runRain(character)
 	},
 }
 
@@ -182,8 +183,8 @@ func tick() tea.Msg {
 	return tickMsg(time.Now())
 }
 
-func initialModel() model {
-	art := strings.Split(trollface, "\n")
+func initialModel(character string) model {
+	art := strings.Split(characterArt(character), "\n")
 	artWidth := 0
 	for _, line := range art {
 		artWidth = max(artWidth, len([]rune(line)))
@@ -196,8 +197,8 @@ func initialModel() model {
 	}
 }
 
-func runRain() {
-	p := tea.NewProgram(initialModel())
+func runRain(character string) {
+	p := tea.NewProgram(initialModel(character))
 	if _, err := p.Run(); err != nil {
 		fmt.Printf("Error running program: %v", err)
 	}

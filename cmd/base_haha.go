@@ -3,12 +3,16 @@ package cmd
 import "fmt"
 
 func printHaha(character string) {
+	fmt.Print(characterArt(character))
+}
+
+func characterArt(character string) string {
 	switch character {
 	case "joker":
-		fmt.Print(joker)
+		return joker
 	case "trollface":
-		fmt.Print(trollface)
+		return trollface
 	default:
-		fmt.Print(trollface)
+		return trollface
 	}
 }
