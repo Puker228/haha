@@ -1,6 +1,6 @@
 # haha
 
-Terminal CLI that prints a character face and can animate it as rain.
+Terminal CLI that prints a character face and can animate it as rain or an explosion.
 
 ## Install
 
@@ -36,9 +36,21 @@ Run falling rain with another character:
 go run . rain -c joker
 ```
 
+Explode trollface art across the terminal:
+
+```sh
+go run . boom
+```
+
+Explode another character:
+
+```sh
+go run . boom -c joker
+```
+
 Available characters:
 
 - `trollface`
 - `joker`
 
-In rain mode, press `q` or `ctrl+c` to quit.
+In animation modes, press `q` or `ctrl+c` to quit.
