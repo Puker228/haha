@@ -32,7 +32,8 @@ var rootCmd = &cobra.Command{
 	Short: "A simple app to have haha",
 	Long:  "A simple app to have haha. Run 'haha' in the terminal to make a simple 'haha' happen.",
 	Run: func(cmd *cobra.Command, args []string) {
-		printHaha()
+		character, _ := cmd.Flags().GetString("character")
+		printHaha(character)
 	},
 }
 
@@ -44,4 +45,5 @@ func Execute() {
 }
 
 func init() {
+	rootCmd.PersistentFlags().StringP("character", "c", "trollface", "")
 }
