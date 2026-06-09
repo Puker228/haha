@@ -45,5 +45,5 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.PersistentFlags().StringP("character", "c", "trollface", "")
+	rootCmd.PersistentFlags().StringP("character", "c", "trollface", "Character to print: trollface, joker")
 }
